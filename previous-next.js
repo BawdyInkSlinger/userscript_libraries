@@ -1,4 +1,4 @@
-exports.previousNext = function (when, previousSelector, nextSelector) {
+previousNext = function (when, previousSelector, nextSelector) {
     let i;
     const onDelay = function () {
         if (when()) {
