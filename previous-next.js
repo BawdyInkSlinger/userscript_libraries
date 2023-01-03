@@ -18,10 +18,12 @@ previousNext = function (when, previousActionOrSelector, nextActionOrSelector) {
                 console.log("keydown event", e, "previousActionOrSelector", previousActionOrSelector, "nextActionOrSelector", nextActionOrSelector);
                 // left arrow
                 if ((e.keyCode || e.which) == 37) {
+                    console.log("Perform action on previousActionOrSelector");
                     performAction(previousActionOrSelector);
                 }
                 // right arrow
                 if ((e.keyCode || e.which) == 39) {
+                    console.log("Perform action on nextActionOrSelector");
                     performAction(nextActionOrSelector);
                 }
             });
