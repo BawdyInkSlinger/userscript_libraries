@@ -1,4 +1,12 @@
-previousNext = function (when, previousSelector, nextSelector) {
+function performAction(action) {
+    if (typeof action === 'string') {
+        document.querySelector(action).click();
+    } else {
+        action();
+    }
+}
+
+previousNext = function (when, previousActionOrSelector, nextActionOrSelector) {
     let i;
     const onDelay = function () {
         if (when()) {
@@ -9,11 +17,11 @@ previousNext = function (when, previousSelector, nextSelector) {
                 // console.log("event", e);
                 // left arrow
                 if ((e.keyCode || e.which) == 37) {
-                    document.querySelector(previousSelector).click();
+                    performAction(previousActionOrSelector);
                 }
                 // right arrow
                 if ((e.keyCode || e.which) == 39) {
-                    document.querySelector(nextSelector).click();
+                    performAction(nextActionOrSelector);
                 }
             });
         }
