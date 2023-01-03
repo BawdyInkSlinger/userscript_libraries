@@ -1,4 +1,5 @@
 function performAction(action) {
+    console.log("typeof action", (typeof action));
     if (typeof action === 'string') {
         document.querySelector(action).click();
     } else {
