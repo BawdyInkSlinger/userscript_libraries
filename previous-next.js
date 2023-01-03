@@ -14,7 +14,7 @@ previousNext = function (when, previousActionOrSelector, nextActionOrSelector) {
 
             const body = document.querySelector('body');
             body.addEventListener('keydown', function (e) {
-                // console.log("event", e);
+                console.log("keydown event", e, "previousActionOrSelector", previousActionOrSelector, "nextActionOrSelector", nextActionOrSelector);
                 // left arrow
                 if ((e.keyCode || e.which) == 37) {
                     performAction(previousActionOrSelector);
