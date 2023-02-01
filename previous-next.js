@@ -15,14 +15,15 @@ previousNext = function (when, previousActionOrSelector, nextActionOrSelector) {
 
             const body = document.querySelector('body');
             body.addEventListener('keydown', function (e) {
-                console.log("keydown event", e, "previousActionOrSelector", previousActionOrSelector, "nextActionOrSelector", nextActionOrSelector);
+                const enabled = when();
+                console.log("keydown event", e, "previousActionOrSelector", previousActionOrSelector, "nextActionOrSelector", nextActionOrSelector, "enabled", enabled);
                 // left arrow
-                if ((e.keyCode || e.which) == 37 && when()) {
+                if ((e.keyCode || e.which) == 37 && enabled) {
                     console.log("Perform action on previousActionOrSelector");
                     performAction(previousActionOrSelector);
                 }
                 // right arrow
-                if ((e.keyCode || e.which) == 39 && when()) {
+                if ((e.keyCode || e.which) == 39 && enabled) {
                     console.log("Perform action on nextActionOrSelector");
                     performAction(nextActionOrSelector);
                 }
