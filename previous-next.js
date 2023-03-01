@@ -9,7 +9,9 @@ function performAction(action) {
 
 previousNext = function (when, previousActionOrSelector, nextActionOrSelector) {
     let i;
+    const startTime = Date.now();
     const onDelay = function () {
+        
         if (when()) {
             clearInterval(i);
 
@@ -28,6 +30,9 @@ previousNext = function (when, previousActionOrSelector, nextActionOrSelector) {
                     performAction(nextActionOrSelector);
                 }
             });
+        }
+        if (Date.now() - startTime > 10000) {
+            clearInterval(i);
         }
     };
     i = setInterval(onDelay, 500);
